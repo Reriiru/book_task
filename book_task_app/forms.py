@@ -20,9 +20,11 @@ class BookForm(ModelForm):
 
         for author in self.cleaned_data.get('author').all():
             author_set = set(author.genre.values_list('id', flat=True))
-            
+
             if author_set != genre_set:
-                raise ValidationError("This author can't write this sort of book",
-                                      code="wrong_author")
+                raise ValidationError(
+                    "This author can't write this sort of book",
+                    code="wrong_author"
+                    )
 
         return self.cleaned_data
