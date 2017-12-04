@@ -1,0 +1,29 @@
+version: "3.1"
+services:
+  book_task:
+    build: .
+    image: book_task
+    command: "python manage.py runserver 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
+    expose:
+      - 8000
+    depends_on:
+      - db
+    volumes:
+      - C:\Users\Raumwalross\Documents\Git\book_task\book_task\:/opt/book_task
+
+  db:
+    image: mariadb:10.1
+    environment:
+      - COMPOSE_CONVERT_WINDOWS_PATHS=1
+    volumes:
+      - "database:/var/lib/mysql"
+    expose:
+      - "3306"
+    environment:
+        - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+
+
+volumes:
+  database:

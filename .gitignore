@@ -1,0 +1,14 @@
+# Virtual Env
+venv
+
+# VS code settings
+.vscode
+
+# Cache
+__pycache__
+.cache
+
+#Migrations
+migrations
+db.sqlite3
+.docker
