@@ -3,9 +3,20 @@
 <ul>
     {% for author in authors %}
         <li><span>{{ author.name }}</span>
-            {% for genre in author.genre.all %}
-            <span>{{ genre.name }}</span>
-            {% endfor %}
+            <div>
+                <strong>Author's Genres:</strong>
+                {% for genre in author.genre.all %}
+                <span>{{ genre.name }}</span>
+                {% endfor %}
+            </div>
+            <div>
+                <strong>Author's Books:</strong>
+                {% for book in author.books_set.all %}
+                <a href="http://{{ request.META.HTTP_HOST }}/books/?genre={{ book.genre }}&author={{ author.name }}"> 
+                    {{ book.title }} 
+                </a>
+                {% endfor %}
+            </div>
         </li>
     {% endfor %}
 </ul>
