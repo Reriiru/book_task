@@ -52,5 +52,5 @@ class BookList(ListView):
             else:
                 return super(BookList, self).get_queryset()
 
-        queryset = self.get_books_by_author() | self.get_books_by_genre()
+        queryset = self.get_books_by_author() & self.get_books_by_genre()
         return queryset
