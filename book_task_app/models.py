@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
 
 class Genre(models.Model):
     name = models.CharField(max_length=200)
@@ -21,7 +19,7 @@ class Author(models.Model):
 class Book(models.Model):
     title = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
-    authors = models.ManyToManyField(Author)
+    author = models.ManyToManyField(Author)
     genre = models.ManyToManyField(Genre)
 
     def __str__(self):

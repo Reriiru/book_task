@@ -1,5 +1,7 @@
-from django.http import HttpResponse
+from django.views.generic import ListView
+from book_task_app.models import Book, Author
 
 
-def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+class BookList(ListView):
+    model = Book
+    context_object_name = 'books'

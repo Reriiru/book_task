@@ -26,17 +26,16 @@ SECRET_KEY = 'w786qv^a9klf7x#*1rsbtgyn(&ixotjxys!gs_9b&z5+br6lvt'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 # Application definition
 
 INSTALLED_APPS = [
-    'book_task_app.apps.BookTaskAppConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'book_task_app.apps.BookTaskAppConfig'
 ]
 
 MIDDLEWARE = [

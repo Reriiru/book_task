@@ -1,0 +1,12 @@
+{{ context }}
+<h2>Books</h2>
+<ul>
+    {% for book in books %}
+        <li><span>{{ book.title }}</span>
+            {% for genre in book.genre.all %}
+            <span>{{ genre.name }}</span>
+            {% endfor %}
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
