@@ -1,21 +1,10 @@
-<h2>Books</h2>
-
-<form action="/books/">
-    Genre: <br>
-    <input type="text" name="genre"><br>
-    Authors: <br>
-    <input type="text" name="author"><br>
-    <input type="submit" value="Find">
-</form>
+<h2>Authors</h2>
 
 <ul>
-    {% for book in books %}
-        <li><span>{{ book.title }}</span>
-            {% for genre in book.genre.all %}
+    {% for author in authors %}
+        <li><span>{{ author.name }}</span>
+            {% for genre in author.genre.all %}
             <span>{{ genre.name }}</span>
-            {% endfor %}
-            {% for author in book.author.all %}
-            <span>{{ author.name }}</span>
             {% endfor %}
         </li>
     {% endfor %}

@@ -1,7 +1,8 @@
-from django.urls import path
+from django.conf.urls import url
 
 from . import views
 
 urlpatterns = [
-    path('', views.BookList.as_view(), name='book_list'),
+    url(r'^$', views.BookList.as_view(), name='book_list'),
+    url(r'^authors/$', views.AuthorList.as_view(), name='authors')
 ]
