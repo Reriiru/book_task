@@ -10,12 +10,23 @@
 
 <ul>
     {% for book in books %}
-        <li><span>{{ book.title }}</span>
+        <li>
+            <span> 
+                <a href="/books/details/{{ book.title }}">
+                {{ book.title }} 
+                </a>
+            </span>
+            
             {% for genre in book.genre.all %}
-            <span>{{ genre.name }}</span>
+            <span>
+                {{ genre.name }}
+            </span>
             {% endfor %}
+
             {% for author in book.author.all %}
-            <span>{{ author.name }}</span>
+            <span>
+                {{ author.name }}
+            </span>
             {% endfor %}
         </li>
     {% endfor %}

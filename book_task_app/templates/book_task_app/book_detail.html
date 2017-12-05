@@ -1,0 +1,24 @@
+<h2>Book</h2>
+
+<span>
+    <strong>Book title:</strong>
+    {{ book.title }}
+</span>
+
+<span>
+    <strong>Books genres:</strong>
+    {% for genre in book.genre.all%}
+    <a href="http://{{ request.META.HTTP_HOST }}/books/?genre={{ genre.name }}&author=">
+        {{genre.name}}
+    </a>
+    {% endfor %}
+</span>
+
+<span>
+    <strong>Books authors:</strong>
+    {% for author in book.author.all %}
+    <a href="http://{{ request.META.HTTP_HOST }}/books/?genre=&author={{ author.name }}">
+        {{ author.name }}
+    </a>
+    {% endfor %}
+</span>

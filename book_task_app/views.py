@@ -1,4 +1,4 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from book_task_app.models import Book, Author
 from django.utils.datastructures import MultiValueDictKeyError
 
@@ -54,3 +54,13 @@ class BookList(ListView):
 
         queryset = self.get_books_by_author() & self.get_books_by_genre()
         return queryset
+
+
+class BookDetails(DetailView):
+    model = Book
+    context_object_name = 'book'
+    slug_field = 'title'
+
+    def get_context_data(self, **kwargs):
+        context = super(BookDetails, self).get_context_data(**kwargs)
+        return context

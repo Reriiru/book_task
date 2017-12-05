@@ -11,8 +11,8 @@
             </div>
             <div>
                 <strong>Author's Books:</strong>
-                {% for book in author.books_set.all %}
-                <a href="http://{{ request.META.HTTP_HOST }}/books/?genre={{ book.genre }}&author={{ author.name }}"> 
+                {% for book in author.book_set.all %}
+                <a href="http://{{ request.META.HTTP_HOST }}/books/details/{{ book.title }}"> 
                     {{ book.title }} 
                 </a>
                 {% endfor %}
